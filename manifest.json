@@ -1,0 +1,35 @@
+{
+  "name": "Gmail Rapid Scrolling",
+  "description": "Allows the user to rapidly scroll over their mails by pressing 'n' (next) in the keyboard. The window supports auto-scroll by adjusting the view and zooming at colorful text.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js",
+    "script": "setup.html"
+  },
+  "permissions": ["storage", "tabs", "background", "scripting"],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "/images/s16.png",
+      "32": "/images/s32.png",
+      "48": "/images/s48.png",
+      "128": "/images/s128.png"
+    },
+    "icons": {
+      "16": "/images/s16.png",
+      "32": "/images/s32.png",
+      "48": "/images/s48.png",
+      "128": "/images/s128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://mail.google.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+ "options_page": "options/index.html"
+}
